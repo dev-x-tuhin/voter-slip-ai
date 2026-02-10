@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   // CRITICAL: This base path './' ensures assets load correctly on GitHub Pages
   // instead of looking for them at the root domain.
-  base: './voter-slip-ai',
+  base: './voterslip.ai.arashdropzone.store',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
