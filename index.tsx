@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-// Polyfill process for browser environments (GitHub Pages, etc.)
-// This prevents "ReferenceError: process is not defined" which causes white screen
-if (typeof window !== 'undefined' && !(window as any).process) {
-  (window as any).process = { env: {} };
-}
-
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");
@@ -23,7 +17,6 @@ interface ErrorBoundaryState {
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  // Explicitly declare state to resolve TS error "Property 'state' does not exist"
   public state: ErrorBoundaryState = {
     hasError: false,
     error: null
@@ -40,10 +33,21 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: '20px', textAlign: 'center', fontFamily: 'sans-serif' }}>
-          <h1>Something went wrong.</h1>
-          <p style={{ color: 'red' }}>{this.state.error?.toString()}</p>
-          <button onClick={() => window.location.reload()} style={{ padding: '10px 20px', marginTop: '10px' }}>
+        <div style={{ padding: '20px', textAlign: 'center', fontFamily: 'sans-serif', marginTop: '50px' }}>
+          <h1 style={{ color: '#e11d48' }}>Something went wrong.</h1>
+          <p style={{ color: '#4b5563' }}>{this.state.error?.toString()}</p>
+          <p style={{ fontSize: '12px', color: '#9ca3af' }}>Check the console for more details.</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            style={{ 
+              padding: '10px 20px', 
+              marginTop: '20px',
+              backgroundColor: '#16a34a',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            }}>
             Reload Page
           </button>
         </div>

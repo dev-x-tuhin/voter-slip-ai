@@ -13,14 +13,13 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       assetsDir: 'assets',
-      // Ensure source maps are generated for easier debugging if errors persist
       sourcemap: true,
     },
     define: {
       // Safely inject the API KEY
       'process.env.API_KEY': JSON.stringify(env.API_KEY),
-      // Prevent "process is not defined" error in some libraries
-      'process.env': {},
+      // Prevent "process is not defined" error in libraries by defining an empty object
+      'process.env': JSON.stringify({}), 
     }
   };
 });
