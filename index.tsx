@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
+// CRITICAL: Polyfill process for browser environments (GitHub Pages)
+// This must run before any other imports that might use process.env
+if (typeof window !== 'undefined') {
+  if (!(window as any).process) {
+    (window as any).process = {};
+  }
+  if (!(window as any).process.env) {
+    (window as any).process.env = {};
+  }
+}
+
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");
