@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from './App.js';
 
 // CRITICAL: Polyfill process for browser environments (GitHub Pages)
 // This must run before any other imports that might use process.env
