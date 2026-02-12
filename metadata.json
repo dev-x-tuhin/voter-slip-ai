@@ -1,5 +1,0 @@
-{
-  "name": "Smart Voter Slip Search",
-  "description": "A React application powered by Gemini AI to extract and search for voter information within uploaded PDF voter slips or lists.",
-  "requestFramePermissions": []
-}
